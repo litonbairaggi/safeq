@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'feature',
     'news_and_update',
     'contact',
-    
+    'gallery',
 ]
 
 MIDDLEWARE = [

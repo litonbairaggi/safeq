@@ -14,6 +14,7 @@ from business_goal.models import BusinessGoal
 from counter.models import Counter
 from teams .models import Teams
 from about.models import AboutUs, FounderInfo, AboutTime
+from gallery.models import Gallery
 
 class HomeView(TemplateView):
     template_name = "index/index.html"
@@ -34,7 +35,7 @@ class HomeView(TemplateView):
         
         context['settings'] = Setting.objects.all().order_by('id')[:1]
         context['sliders'] = Slider.objects.all().order_by('id')[:3]
-        context['counters'] = Counter.objects.all().order_by('id')[:4]
+        context['counters'] = Counter.objects.all().order_by('id')[:1]
         
         context['about_uss'] = AboutUs.objects.all().order_by('id')[:1]
         context['founder_infos'] = FounderInfo.objects.all().order_by('id')[:1]
@@ -46,6 +47,7 @@ class HomeView(TemplateView):
         context['goals'] = BusinessGoal.objects.order_by('id')[:1]
         context['features'] = Feature.objects.order_by('id')[:1]
         context['news_updates'] = NewsUpdate.objects.all().order_by('id')[:7]
+        context['gallerys'] = Gallery.objects.all().order_by('id')[:7]
         return context 
     
     

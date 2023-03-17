@@ -366,60 +366,67 @@
 </div>
 <!-- business goal area End -->
 
-<!-- rts-counter up area start -->
-<div class="rts-counter-up-area rts-section-gap counter-bg">
-    <div class="container">
-        <div class="row">
-            <!-- counter up area -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                {% for counter in counters %}
-                <div class="counter-details">
-                    <h2 class="title"><span class="counter animated fadeInDownBig">{{ counter.value_1 }}</span></h2>
-                    <p class="disc">{{ counter.subject_1 }}</p>
-                </div>
-                {% endfor %}
-            </div>
-            <!-- counter up area -->
-            <!-- counter up area -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="single-counter pl--10 justify-content-center two pl--30">
-                    <img src="{% static 'images/counterup/icon/02.svg' %}" alt="Business_counter">
-                    <div class="counter-details">
-                        <h2 class="title"><span class="counter animated fadeInDownBig">650</span></h2>
-                        <p class="disc">Media Activities</p>
+
+
+    <!-- rts-counter up area start -->
+    <div class="rts-counter-up-area rts-section-gap counter-bg">
+        <div class="container">
+            {% for counter in counters %}
+            <div class="row">
+                <!-- counter up area -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter">
+                        <img src="{% static 'images/counterup/icon/01.svg' %}" alt="Business_counter">
+                        
+                        <div class="counter-details">
+                            <h2 class="title"><span class="counter animated fadeInDownBig">{{ counter.value_1 }}</span></h2>
+                            <p class="disc">{{ counter.subject_1 }}</p>
+                        </div>
+                        
                     </div>
                 </div>
-            </div>
-            <!-- counter up area -->
-            <!-- counter up area -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="single-counter pl--10 justify-content-center three pl--50">
-                    <img src="{% static 'images/counterup/icon/03.svg' %}" alt="Business_counter">
-                    <div class="counter-details">
-                        <h2 class="title"><span class="counter animated fadeInDownBig">567</span></h2>
-                        <p class="disc">Skilled Experts</p>
+                <!-- counter up area -->
+                <!-- counter up area -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter pl--10 justify-content-center two pl--30">
+                        <img src="{% static 'images/counterup/icon/02.svg' %}" alt="Business_counter">
+                        <div class="counter-details">
+                            <h2 class="title"><span class="counter animated fadeInDownBig">{{ counter.value_2 }}</span></h2>
+                            <p class="disc">{{ counter.subject_2 }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- counter up area -->
-            <!-- counter up area -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="single-counter pl--10 justify-content-end four">
-                    <img src="{% static 'images/counterup/icon/04.svg' %}" alt="Business_counter">
-                    <div class="counter-details">
-                        <h2 class="title happy"><span class="counter animated fadeInDownBig">28</span></h2>
-                        <p class="disc">Happy Clients</p>
+                <!-- counter up area -->
+                <!-- counter up area -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter pl--10 justify-content-center three pl--50">
+                        <img src="{% static 'images/counterup/icon/03.svg' %}" alt="Business_counter">
+                        <div class="counter-details">
+                            <h2 class="title"><span class="counter animated fadeInDownBig">{{ counter.value_3 }}</span></h2>
+                            <p class="disc">{{ counter.subject_3 }}</p>
+                        </div>
                     </div>
                 </div>
+                <!-- counter up area -->
+                <!-- counter up area -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter pl--10 justify-content-end four">
+                        <img src="{% static 'images/counterup/icon/04.svg' %}" alt="Business_counter">
+                        <div class="counter-details">
+                            <h2 class="title happy"><span class="counter animated fadeInDownBig">{{ counter.value_4 }}</span></h2>
+                            <p class="disc">{{ counter.subject_4 }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- counter up area -->
             </div>
-            <!-- counter up area -->
+            {% endfor %}
         </div>
     </div>
-</div>
-<!-- rts-counter up area end -->
+    <!-- rts-counter up area end -->
 
 <!-- start gallery section -->
-<div class="rts-gallery-area rts-section-gap gallery-bg bg_image" id="Project">
+<div class="rts-gallery-area rts-section-gap gallery-bg bg_image">
     <div class="container">
         <div class="row">
             <div class="rts-title-area gallery text-start pl_sm--20">
@@ -433,11 +440,12 @@
             <div class="col-12">
                 <div class="swiper mygallery mySwipers">
                     <div class="swiper-wrapper gallery">
+                        {% for gallery in gallerys %}
                         <div class="swiper-slide">
                             <div class="row g-5 w-g-100">
                                 <div class="col-lg-7 col-md-12 col-sm-12 col-12">
                                     <div class="thumbnail-gallery">
-                                        <img src="{% static 'images/gallery/gallery-01.jpg' %}" alt="business-images">
+                                        <img src="{{ gallery.gallery_img.url }}" alt="business-images">
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-md-12 col-sm-12 col-12">
@@ -446,65 +454,16 @@
                                             <img src="{% static 'images/gallery/icon/01.svg' %}" alt="Business-gallery">
                                         </div>
                                         <a href="#">
-                                            <h4 class="title">Pro Business Solution</h4>
+                                            <h4 class="title">{{ gallery.title }}</h4>
                                         </a>
-                                        <span>Case Study, Growth</span>
-                                        <p class="disc">Ornare etiam laoreet dictumst nisl quisque scelerisque cras
-                                            ut porta interdum purus mattis iaculis litora turpis torquent posuere.
-                                        </p>
-                                        <a class="rts-btn btn-primary" href="project-details.html">View Project</a>
+                                        <span>{{ gallery.sub_title }}</span>
+                                        <p class="disc">{{ gallery.description }}</p>
+                                        {% comment %} <a class="rts-btn btn-primary" href="#">View Project</a> {% endcomment %}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="row g-5 w-g-100">
-                                <div class="col-lg-7">
-                                    <div class="thumbnail-gallery">
-                                        <img src="{% static 'images/gallery/gallery-02.jpg' %}" alt="business-images">
-                                    </div>
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="bg-right-gallery">
-                                        <div class="icon">
-                                            <img src="{% static 'images/gallery/icon/01.svg' %}" alt="Business-gallery">
-                                        </div>
-                                        <a href="#">
-                                            <h4 class="title">Finbiz Pro Business</h4>
-                                        </a>
-                                        <span>Case Study, Growth</span>
-                                        <p class="disc">In the literal sense, the term “Business” means the state of
-                                            being busy. But it is a very wide connotation of business.</p>
-                                        <a class="rts-btn btn-primary" href="project-details.html">View Project</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="row g-5 w-g-100">
-                                <div class="col-lg-7">
-                                    <div class="thumbnail-gallery">
-                                        <img src="{% static 'images/gallery/gallery-03.jpg' %}" alt="business-images">
-                                    </div>
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="bg-right-gallery">
-                                        <div class="icon">
-                                            <img src="{% static 'images/gallery/icon/01.svg' %}" alt="Business-gallery">
-                                        </div>
-                                        <a href="#">
-                                            <h4 class="title">Pro Solution Business</h4>
-                                        </a>
-                                        <span>Case Study, Growth</span>
-                                        <p class="disc">But a very wide of business because it
-                                            covers every human activity. Business is really concerned with the
-                                            production.
-                                        </p>
-                                        <a class="rts-btn btn-primary" href="project-details.html">View Project</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>

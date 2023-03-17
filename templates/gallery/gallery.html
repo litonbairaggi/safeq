@@ -1,0 +1,72 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+    <!-- start breadcrumb area -->
+    <div class="rts-breadcrumb-area breadcrumb-bg bg_image">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 breadcrumb-1">
+                    <h1 class="title">Gallery</h1>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="bread-tag">
+                        <a href="index.html">Home</a>
+                        <span> / </span>
+                        <a href="#" class="active">Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end breadcrumb area -->
+
+   <!-- start gallery section -->
+    <div class="rts-gallery-area rts-section-gap gallery-bg bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="rts-title-area gallery text-start pl_sm--20">
+                    <p class="pre-title">
+                        Popular Projects
+                    </p>
+                    <h2 class="title">Our Completed Projects</h2>
+                </div>
+            </div>
+            <div class="row mt--45">
+                <div class="col-12">
+                    <div class="swiper mygallery mySwipers">
+                        <div class="swiper-wrapper gallery">
+                            {% for gallery in gallerys %}
+                            <div class="swiper-slide">
+                                <div class="row g-5 w-g-100">
+                                    <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+                                        <div class="thumbnail-gallery">
+                                            <img src="{{ gallery.gallery_img.url }}" alt="business-images">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                                        <div class="bg-right-gallery">
+                                            <div class="icon">
+                                                <img src="{% static 'images/gallery/icon/01.svg' %}" alt="Business-gallery">
+                                            </div>
+                                            <a href="#">
+                                                <h4 class="title">{{ gallery.title }}</h4>
+                                            </a>
+                                            <span>{{ gallery.sub_title }}</span>
+                                            <p class="disc">{{ gallery.description }}</p>
+                                            {% comment %} <a class="rts-btn btn-primary" href="#">View Project</a> {% endcomment %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}    
+    <!-- start gallery section -->

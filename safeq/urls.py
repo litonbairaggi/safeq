@@ -10,7 +10,7 @@ urlpatterns = [
 
     path('slider/', include('slider.urls')),
     path('about/', include('about.urls')),
-    path('', include('setting.urls')),
+    path('setting/', include('setting.urls')),
     path('services/', include('service.urls')),
     path('services/tax-consultancy/', include('tax_consultancy_services.urls')),
     path('services/accounting-reporting/', include('accounting_reporting.urls')),
@@ -29,4 +29,5 @@ urlpatterns = [
     path('feature/', include('feature.urls')),
     path('news-&-update/', include('news_and_update.urls')),
     path('contact/', include('contact.urls')),
+    path('gallery/', include('gallery.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
