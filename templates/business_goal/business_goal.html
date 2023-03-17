@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+
+<!-- business goal area -->
+<br><br><br>
+<div class="rts-business-goal mt--0 rts-section-gapBottom">
+    <div class="container">
+        {% for goal in goals %}
+        <div class="row">
+            <!-- business goal left -->
+            <div class="col-lg-6">
+                <div class="business-goal-one">
+                    <img src="{{ goal.img.url }}" alt="Business_Goal">
+                    <img class="small" src="{{ goal.small_img.url }}" alt="Business_Goal">
+                </div>
+            </div>
+            <!-- business goal right -->
+
+            <!-- right area business -->
+            <div class="col-lg-6 mt--35 mt_md--70 mt_sm--70">
+                <div class="business-goal-right">
+                    <div class="rts-title-area business text-start pl--30">
+                        <p class="pre-title">{{ goal.pre_title }}</p>
+                        <h2 class="title">{{ goal.title }}</h2>
+                    </div>
+                    <div class="rts-business-goal pl--30">
+                        <div class="single-goal">
+                            <img src="{% static 'images/business-goal/icon/01.svg' %}" alt="business_Icone" class="thumb">
+                            <div class="goal-wrapper">
+                                <h6 class="title">{{ goal.support_title_1 }}</h6>
+                                <p class="disc">{{ goal.description_1 }}</p>
+                            </div>
+                        </div>
+                        <div class="single-goal">
+                            <img src="{% static 'images/business-goal/icon/02.svg' %}" alt="business_Icone" class="thumb">
+                            <div class="goal-wrapper">
+                                <h6 class="title">{{ goal.support_title_2 }}</h6>
+                                <p class="disc">{{ goal.description_2 }}</p>
+                            </div>
+                        </div>
+                        <div class="goal-button-wrapper mt--70">
+                            <a href="#" class="rts-btn btn-primary color-h-black">Contact Us</a>
+                            {% comment %} <div class="vedio-icone">
+                                <a id="play-video" class="video-play-button" href="#">
+                                    <span></span>
+                                    <span class="outer-text">Watch Video</span>
+                                </a>
+                                <div id="video-overlay" class="video-overlay">
+                                    <a class="video-overlay-close">×</a>
+                                </div>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- right area business ENd -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- business goal area End -->
+{% endblock %}    

@@ -1,0 +1,856 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+
+<div id="anywhere-home"></div>
+<!-- ENd Header Area -->
+
+<!-- banner blank space area -->
+<div class="rts-banner-area rts-banner-one" id="banner">
+    <div class="swiper mySwiper banner-one">
+        <div class="swiper-wrapper">
+            {% for slider in sliders %}
+            <div class="swiper-slide" style="background-image:url({{ slider.sliders_img.url }});">
+                <!-- banner single content -->
+                <div class="banner-one-inner text-start">                   
+                    <p class="pre-title">
+                        <span>Welcome!</span> {{ slider.welcome_text }}
+                    </p>
+                    <h1 class="title "><span>{{slider.title}}</span> <br>
+                        {{slider.with_title}}</h1>
+                    <p class="disc banner-para">
+                        {{slider.description}}
+                    </p>
+                    <a href="#" class="rts-btn btn-primary color-h-black">Get Consultant</a>
+                    <img class="shape-img one" src="{% static 'images/banner/shape/01.png' %}" alt="banner_business">
+                    
+                </div>
+                <!-- banner single content end -->
+            </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="animation-img">
+        <img class="shape-img two" src="{% static 'images/banner/shape/02.png' %}" alt="banner_business">
+        <img class="shape-img three" src="{% static 'images/banner/shape/03.png' %}" alt="banner_business">
+    </div>
+</div>
+<!-- banner blank space area end -->
+
+
+<!-- rts about us section start -->
+<div class="rts-about-area rts-section-gap bg-about-sm-shape" id="about-us">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <!-- about left -->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-md-2 order-sm-2 order-2 mt_md--50 mt_sm--50">
+                {% for about_us in about_uss %}    
+                <div class="rts-title-area">
+                    <p class="pre-title">
+                        {{about_us.title_slogan}}
+                    </p>
+                    <h2 class="title">{{about_us.title}}</h2>
+                </div>
+                {% endfor %}
+
+                <div class="about-inner">
+                    {% for about_us in about_uss %}
+                    <p class="disc">
+                        {{about_us.description}}
+                    </p>
+                    <!-- start about success area -->
+                    <div class="row about-success-wrapper">
+                        <!-- left wrapper start -->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_1}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_2}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_3}}</p>
+                            </div>
+                        </div>
+                        <!-- left wrapper end -->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_4}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_5}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_6}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- start about success area -->
+
+                    <!-- about founder & get in touch start -->
+                    {% for founder_info in founder_infos %}
+                    <div class="row about-founder-wrapper align-items-center mt--40">
+                        <!-- left area start -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="author-inner">
+                                <a class="thumbnail" href="#"><img src="{{ founder_info.founder_img.url }}" alt="finbiz_founder"></a>
+                                <div class="founder-details">
+                                    <a href="team-details.html">
+                                        <h6 class="title">{{founder_info.name}}</h6>
+                                    </a>
+                                    <span>{{founder_info.designation}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- left area end -->
+                        <!-- right founder area -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt_sm--20">
+                            <div class="author-call-option">
+                                <img class="authore-call" src="{% static 'images/about/call.svg' %}" alt="call_founder">
+                                <div class="call-details">
+                                    <span>Call us anytime</span>
+                                    <a href="tel:+18475555555">
+                                        <h6 class="title">{{founder_info.contact_no}}</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- left founder area -->
+                    </div>                   
+                    {% endfor %}
+                    <!-- about founder & get in touch end -->
+                </div>
+            </div>
+            <!-- about right -->
+
+            <!-- about-right Start-->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-md-1 order-sm-1 order-1">
+                <div class="about-one-thumbnail">
+                    {% for about_time in about_times %}
+                    <img src="{{ about_time.img.url }}" alt="about-finbiz">
+                    <img class="small-img" src="{{ about_time.small_img.url }}" alt="finbiz-small">
+                    <div class="experience">
+                        <div class="left single">
+                            <h2 class="title">{{about_time.time_no}}+</h2>
+                            <p class="time">{{about_time.time}}</p>
+                        </div>
+                        <div class="right single">
+                            <p class="disc">
+                                {{about_time.description}}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% comment %} {% endfor %} {% endcomment %}
+            <!-- about-right end -->
+        </div>
+    </div>
+</div>
+<!-- rts about us section end -->
+
+
+<!-- rts service post area  Start-->
+{% for service in services %}
+    <div class="rts-service-area rts-section-gapBottom" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="rts-title-area service text-center">
+                        <p class="pre-title">
+                            {{service.pre_title}}
+                        </p>
+                        <h2 class="title">{{service.title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid service-main plr--120-service mt--50 plr_md--0 pl_sm--0 pr_sm--0">
+            <div class="background-service row">
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner one">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/01.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_tc' %}">
+                                <h5 class="title">{{service.title_1}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_1}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_tc' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner two">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/02.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_ar' %}">
+                                <h5 class="title">{{service.title_2}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_2}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_ar' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner three">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/03.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_ca' %}">
+                                <h5 class="title">{{service.title_3}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_3}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_ca' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner four">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/04.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_ima' %}">
+                                <h5 class="title">{{service.title_4}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_4}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_ima' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner five">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/05.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_cm' %}">
+                                <h5 class="title">{{service.title_5}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_5}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_cm' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner six">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/06.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_hs' %}">
+                                <h5 class="title">{{service.title_6}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_6}}
+                            <a class="rts-read-more btn-primary" href="{% url 'service_hs' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+            </div>
+            <div class="row">
+                <div class="cta-one-bg col-12">
+                    <div class="cta-one-inner">
+                        <div class="cta-left">
+                            <h3 class="title">Let’s discuss about how we can help
+                                make your business better</h3>
+                        </div>
+                        <div class="cta-right">
+                            <a class="rts-btn btn-white" href="appoinment.html">Lets Work Together</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    <!-- rts service post area ENd -->
+
+<!-- business goal area -->
+<div class="rts-business-goal mt--0 rts-section-gapBottom">
+    <div class="container">
+        {% for goal in goals %}
+        <div class="row">
+            <!-- business goal left -->
+            <div class="col-lg-6">
+                <div class="business-goal-one">
+                    <img src="{{ goal.img.url }}" alt="Business_Goal">
+                    <img class="small" src="{{ goal.small_img.url }}" alt="Business_Goal">
+                </div>
+            </div>
+            <!-- business goal right -->
+
+            <!-- right area business -->
+            <div class="col-lg-6 mt--35 mt_md--70 mt_sm--70">
+                <div class="business-goal-right">
+                    <div class="rts-title-area business text-start pl--30">
+                        <p class="pre-title">{{ goal.pre_title }}</p>
+                        <h2 class="title">{{ goal.title }}</h2>
+                    </div>
+                    <div class="rts-business-goal pl--30">
+                        <div class="single-goal">
+                            <img src="{% static 'images/business-goal/icon/03.svg' %}" alt="business_Icone" class="thumb">
+                            <div class="goal-wrapper">
+                                <h6 class="title">{{ goal.support_title_1 }}</h6>
+                                <p class="disc">{{ goal.description_1 }}</p>
+                            </div>
+                        </div>
+                        <div class="single-goal">
+                            <img src="{% static 'images/business-goal/icon/04.svg' %}" alt="business_Icone" class="thumb">
+                            <div class="goal-wrapper">
+                                <h6 class="title">{{ goal.support_title_2 }}</h6>
+                                <p class="disc">{{ goal.description_2 }}</p>
+                            </div>
+                        </div>
+                        <div class="goal-button-wrapper mt--70">
+                            <a href="#" class="rts-btn btn-primary color-h-black">Contact Us</a>
+                            {% comment %} <div class="vedio-icone">
+                                <a id="play-video" class="video-play-button" href="#">
+                                    <span></span>
+                                    <span class="outer-text">Watch Video</span>
+                                </a>
+                                <div id="video-overlay" class="video-overlay">
+                                    <a class="video-overlay-close">×</a>
+                                </div>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- right area business ENd -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- business goal area End -->
+
+<!-- rts-counter up area start -->
+<div class="rts-counter-up-area rts-section-gap counter-bg">
+    <div class="container">
+        <div class="row">
+            <!-- counter up area -->
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                {% for counter in counters %}
+                <div class="counter-details">
+                    <h2 class="title"><span class="counter animated fadeInDownBig">{{ counter.value_1 }}</span></h2>
+                    <p class="disc">{{ counter.subject_1 }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- counter up area -->
+            <!-- counter up area -->
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="single-counter pl--10 justify-content-center two pl--30">
+                    <img src="{% static 'images/counterup/icon/02.svg' %}" alt="Business_counter">
+                    <div class="counter-details">
+                        <h2 class="title"><span class="counter animated fadeInDownBig">650</span></h2>
+                        <p class="disc">Media Activities</p>
+                    </div>
+                </div>
+            </div>
+            <!-- counter up area -->
+            <!-- counter up area -->
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="single-counter pl--10 justify-content-center three pl--50">
+                    <img src="{% static 'images/counterup/icon/03.svg' %}" alt="Business_counter">
+                    <div class="counter-details">
+                        <h2 class="title"><span class="counter animated fadeInDownBig">567</span></h2>
+                        <p class="disc">Skilled Experts</p>
+                    </div>
+                </div>
+            </div>
+            <!-- counter up area -->
+            <!-- counter up area -->
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="single-counter pl--10 justify-content-end four">
+                    <img src="{% static 'images/counterup/icon/04.svg' %}" alt="Business_counter">
+                    <div class="counter-details">
+                        <h2 class="title happy"><span class="counter animated fadeInDownBig">28</span></h2>
+                        <p class="disc">Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+            <!-- counter up area -->
+        </div>
+    </div>
+</div>
+<!-- rts-counter up area end -->
+
+<!-- start gallery section -->
+<div class="rts-gallery-area rts-section-gap gallery-bg bg_image" id="Project">
+    <div class="container">
+        <div class="row">
+            <div class="rts-title-area gallery text-start pl_sm--20">
+                <p class="pre-title">
+                    Popular Projects
+                </p>
+                <h2 class="title">Our Completed Projects</h2>
+            </div>
+        </div>
+        <div class="row mt--45">
+            <div class="col-12">
+                <div class="swiper mygallery mySwipers">
+                    <div class="swiper-wrapper gallery">
+                        <div class="swiper-slide">
+                            <div class="row g-5 w-g-100">
+                                <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+                                    <div class="thumbnail-gallery">
+                                        <img src="{% static 'images/gallery/gallery-01.jpg' %}" alt="business-images">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                                    <div class="bg-right-gallery">
+                                        <div class="icon">
+                                            <img src="{% static 'images/gallery/icon/01.svg' %}" alt="Business-gallery">
+                                        </div>
+                                        <a href="#">
+                                            <h4 class="title">Pro Business Solution</h4>
+                                        </a>
+                                        <span>Case Study, Growth</span>
+                                        <p class="disc">Ornare etiam laoreet dictumst nisl quisque scelerisque cras
+                                            ut porta interdum purus mattis iaculis litora turpis torquent posuere.
+                                        </p>
+                                        <a class="rts-btn btn-primary" href="project-details.html">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row g-5 w-g-100">
+                                <div class="col-lg-7">
+                                    <div class="thumbnail-gallery">
+                                        <img src="{% static 'images/gallery/gallery-02.jpg' %}" alt="business-images">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="bg-right-gallery">
+                                        <div class="icon">
+                                            <img src="{% static 'images/gallery/icon/01.svg' %}" alt="Business-gallery">
+                                        </div>
+                                        <a href="#">
+                                            <h4 class="title">Finbiz Pro Business</h4>
+                                        </a>
+                                        <span>Case Study, Growth</span>
+                                        <p class="disc">In the literal sense, the term “Business” means the state of
+                                            being busy. But it is a very wide connotation of business.</p>
+                                        <a class="rts-btn btn-primary" href="project-details.html">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row g-5 w-g-100">
+                                <div class="col-lg-7">
+                                    <div class="thumbnail-gallery">
+                                        <img src="{% static 'images/gallery/gallery-03.jpg' %}" alt="business-images">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="bg-right-gallery">
+                                        <div class="icon">
+                                            <img src="{% static 'images/gallery/icon/01.svg' %}" alt="Business-gallery">
+                                        </div>
+                                        <a href="#">
+                                            <h4 class="title">Pro Solution Business</h4>
+                                        </a>
+                                        <span>Case Study, Growth</span>
+                                        <p class="disc">But a very wide of business because it
+                                            covers every human activity. Business is really concerned with the
+                                            production.
+                                        </p>
+                                        <a class="rts-btn btn-primary" href="project-details.html">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- start gallery section -->
+
+<!-- start trusted client section -->
+<div class="rts-trusted-client rts-section-gapBottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="title-area-client text-center">
+                    <p class="client-title">Our Trusted Clients</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="client-wrapper-one">
+                {% for our_client in our_clients %}
+                <a href="#"><img src="{{ our_client.clients_img.url }}" alt="business_finbiz"></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end trusted client section -->
+
+<!-- start team section -->
+<div class="rts-team-area rts-section-gap bg-team">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="rts-title-area team text-center">
+                    <p class="pre-title">
+                        Professionals Team
+                    </p>
+                    <h2 class="title">Professionals Team</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5 mt--0">
+
+            <div class="swiper mySwiperh1_team">
+                <div class="swiper-wrapper">
+                    {% for team in teams %}
+                    <div class="swiper-slide">
+                        <div class="team-single-one-start">
+                            <div class="team-image-area">
+                                <a href="{% url 'team_detail' team.id %}">
+                                    <img src="{{ team.membar_img.url }}" alt="Business_Team_single">
+                                    <div class="team-social">
+                                        <div class="main">
+                                            <i class="fal fa-plus"></i>
+                                        </div>
+                                        <div class="team-social-one">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-instagram"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="single-details">
+                                <a href="{% url 'team_detail' team.id %}">
+                                    <h5 class="title">{{ team.name }}</h5>
+                                </a>
+                                <p>{{ team.designation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end team section -->
+
+    <!-- rts features area start -->
+    <div class="rts-feature-area rts-section-gap">
+        <div class="container-fluid padding-controler plr--120">
+            <div class="row bg-white-feature  pt--120 pb--120">
+                {% for feature in features %}
+                <div class="col-xl-6 col-lg-12">
+                    <div class="feature-left-area">
+                        <img src="{{ feature.feature_img.url }}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+                {% for feature in features %}
+                <div class="col-xl-6 col-lg-12">
+                    <div class="rts-title-area feature text-start pl--30 pl_sm--0">
+                        <p class="pre-title">
+                            {{feature.pre_title}}
+                        </p>
+                        <h2 class="title feature-title">{{feature.title}}</h2>
+                        <p>{{feature.description}}</p>
+
+                    </div>
+
+                    <div class="feature-one-wrapper pl--30 mt--40 pl_sm--0">
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_1}}</p>
+                        </div>
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_2}}</p>
+                        </div>
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_3}}</p>
+                        </div>
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_4}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- rts features area end -->
+
+<!-- start client feed back section -->
+<div class="rts-client-feedback">
+    <div class="container">
+        <div class="row">
+            <!-- start testimonials area -->
+            <div class="col-lg-7">
+                <div class="rts-title-area reviews text-start pl--30 pt--70">
+                    <p class="pre-title">
+                        Our Testimonials
+                    </p>
+                    <h2 class="title">Client’s Feedbacks</h2>
+
+                    <!-- swiper area start -->
+                    <div class="swiper mySwipertestimonial">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testimonial-inner">
+                                    <p class="disc text-start">
+                                        “Consectetur adipiscing elit velit porta sapien purus erat nec, a ornare
+                                        laoreet sem gravida accumsan in commodo aliquet nascetur maecenas. Sem
+                                        tempus hendrerit diam mauris leo magna sociosqu viverra, accumsan massa
+                                        tristique egestas cum sodales hac lacinia feugiat scelerisque porttitor”
+                                    </p>
+                                    <div class="testimonial-bottom-one">
+                                        <div class="thumbnail">
+                                            <img src="{% static 'images/testimonials/02.png' %}" alt="business-testimonials">
+                                        </div>
+                                        <div class="details">
+                                            <a href="#">
+                                                <h5 class="title">David Smith</h5>
+                                            </a>
+                                            <span>JHKL Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-inner">
+                                    <p class="disc text-start">
+                                        “Consectetur adipiscing elit velit porta sapien purus erat nec, a ornare
+                                        laoreet sem gravida accumsan in commodo aliquet nascetur maecenas. Sem
+                                        tempus hendrerit diam mauris leo magna sociosqu viverra, accumsan massa
+                                        tristique egestas cum sodales hac lacinia feugiat scelerisque porttitor”
+                                    </p>
+                                    <div class="testimonial-bottom-one">
+                                        <div class="thumbnail">
+                                            <img src="{% static 'images/testimonials/02.png' %}" alt="business-testimonials">
+                                        </div>
+                                        <div class="details">
+                                            <a href="#">
+                                                <h5 class="title">David Smith</h5>
+                                            </a>
+                                            <span>JHKL Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-inner">
+                                    <p class="disc text-start">
+                                        “Consectetur adipiscing elit velit porta sapien purus erat nec, a ornare
+                                        laoreet sem gravida accumsan in commodo aliquet nascetur maecenas. Sem
+                                        tempus hendrerit diam mauris leo magna sociosqu viverra, accumsan massa
+                                        tristique egestas cum sodales hac lacinia feugiat scelerisque porttitor”
+                                    </p>
+                                    <div class="testimonial-bottom-one">
+                                        <div class="thumbnail">
+                                            <img src="{% static 'images/testimonials/02.png' %}" alt="business-testimonials">
+                                        </div>
+                                        <div class="details">
+                                            <a href="#">
+                                                <h5 class="title">David Smith</h5>
+                                            </a>
+                                            <span>JHKL Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <!-- swiper area end -->
+                </div>
+            </div>
+            <!-- end testimonials are -->
+            <!-- images area -->
+            <div class="col-lg-5">
+                <div class="rts-test-one-image-inner">
+                    <img src="{% static 'images/testimonials/01.png' %}" alt="business_testimobials">
+                </div>
+            </div>
+            <!-- image area end -->
+        </div>
+    </div>
+</div>
+<!-- start client feed back section End -->
+
+<!-- blog area start -->
+<div class="rts-blog-area rts-section-gap bg-secondary" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="title-area text-center">
+                    <span>Blog Posts</span>
+                    <h2 class="title">News & Updates</h2>
+                </div>
+            </div>
+        </div>
+        <div class="g-5 mt--20">
+            <div class="swiper mySwiperh1_blog">
+                <div class="swiper-wrapper">
+                    {% for news_update in news_updates %}
+                    <div class="swiper-slide">
+                        <div class="single-blog-one-wrapper">
+                            <div class="thumbnail">
+                                <img src="{{ news_update.membar_img.url }}" alt="business_Blog">
+                                <div class="blog-badge">
+                                    <span>{{ news_update.created_at }}</span>
+                                </div>
+                            </div>
+                            <div class="blog-content">
+                                <p><span>{{ news_update.organization }}</p>
+                                <a href="{% url 'nu_detail' news_update.id %}">
+                                    <h5 class="title">{{ news_update.headline }}</h5>
+                                </a>
+                                <a class="rts-read-more btn-primary" href="{% url 'nu_detail' news_update.id %}"><i class="far fa-arrow-right"></i>Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- blog area end -->
+
+<!-- contact area start -->
+<div class="rts-contact-area contact-one" id="contact">
+    <div class="container">
+        <div class="row align-items-center g-0">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="contact-image-one">
+                    <img src="{% static 'images/contact/01.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="contact-form-area-one">
+                    <div class="rts-title-area contact text-start">
+                        <p class="pre-title">
+                            Make An Appointment
+                        </p>
+                        <h2 class="title">Request a free quote</h2>
+                    </div>
+                    <form action="#">
+                        <div class="name-email">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <input type="text" placeholder="Business Topic">
+                        <textarea placeholder="Type Your Message"></textarea>
+                        <button href="#" class="rts-btn btn-primary">Submit Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- contact area end -->
+
+<!-- map area start -->
+<div class="rts-map-area bg-light-white">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <!-- map area left -->
+                <div class="mapdetails-inner-one">
+                    <div class="left-area single-wized">
+                        <h5 class="title">Get in touch</h5>
+                        <div class="details">
+                            <p>Work and general inquiries</p>
+                            <a class="number" href="#">+3509.120-8605</a>
+
+                            <p class="time-header">
+                                Assistance hours:
+                            </p>
+                            <p class="time">
+                                Monday – Friday <br> 6 am to 8 pm EST
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-area single-wized">
+                        <h5 class="title">Post Address</h5>
+                        <div class="details">
+                            <p>Service Office</p>
+                            <a href="#">786 Dortans Ave, Otam Sites, <br>
+                                CA 36108, United States</a>
+
+                            <p class="headoffice">
+                                Head Office
+                            </p>
+                            <p class="office">142 Drive Lane. USA</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- map area right -->
+            </div>
+            <div class="col-lg-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14602.288851207937!2d90.47855065!3d23.798243149999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1663151706353!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- map area end -->
+
+{% endblock %}

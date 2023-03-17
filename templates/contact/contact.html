@@ -1,0 +1,86 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+    
+<div id="anywhere-home"></div>
+<!-- contact area start -->
+<div class="rts-contact-area contact-one" id="contact">
+    <div class="container">
+        <div class="row align-items-center g-0">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                {% for hotline_info in hotline_infos %}
+                <div class="contact-image-one">
+                    <img src="{{ hotline_info.contact_img.url }}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="contact-form-area-one">
+                    <div class="rts-title-area contact text-start">
+                        <p class="pre-title">
+                            Make An Appointment
+                        </p>
+                        <h2 class="title">Request a free quote</h2>
+                    </div>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="name-email">
+                            {{ form.name }}
+                            {{ form.email }}
+                        </div>
+                        {{ form.subject }}
+                        {{ form.message }}
+                        <button type="submit" href="#" class="rts-btn btn-primary">Submit Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- contact area end -->
+
+<!-- map area start -->
+<div class="rts-map-area bg-light-white">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <!-- map area left -->
+                <div class="mapdetails-inner-one">
+                    {% for hotline_info in hotline_infos %}
+                    <div class="left-area single-wized">
+                        <h5 class="title">{{ hotline_info.hotline_title }}</h5>
+                        <div class="details">
+                            <p>{{ hotline_info.title }}</p>
+                            <a class="number" href="#">{{ hotline_info.telephone_no }}</a>
+                            <p class="time-header">{{ hotline_info.opening_title }}:</p>
+                            <p class="time">{{ hotline_info.day }} <br> {{ hotline_info.time }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    template_name
+                    {% for office_addres in office_address %}
+                    <div class="right-area single-wized">
+                        <h5 class="title">{{ office_addres.address_title }}</h5>
+                        <div class="details">
+                            <p>{{ office_addres.sub_office }}</p>
+                            <a href="#">{{ office_addres.sub_office_location }}<br></a>
+                            <p class="headoffice">
+                                {{ office_addres.head_office }}
+                            </p>
+                            <p class="office">{{ office_addres.head_office_location }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- map area right -->
+            </div>
+            <div class="col-lg-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14602.288851207937!2d90.47855065!3d23.798243149999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1663151706353!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- map area end -->
+{% endblock %}    

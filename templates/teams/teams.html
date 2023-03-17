@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+
+<!-- start team section -->
+<div class="rts-team-area rts-section-gap bg-team">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="rts-title-area team text-center">
+                    <p class="pre-title">
+                        Professionals Team
+                    </p>
+                    <h2 class="title">Professionals Team</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5 mt--0">
+            <div class="swiper mySwiperh1_team">
+                <div class="swiper-wrapper">
+                    {% for team in teams %}
+                    <div class="swiper-slide">
+                        <div class="team-single-one-start">
+                            <div class="team-image-area">                                
+                                <a href="{% url 'team_detail' team.id %}">
+                                    <img src="{{ team.membar_img.url }}" alt="Business_Team_single">
+                                    <div class="team-social">
+                                        <div class="main">
+                                            <i class="fal fa-plus"></i>
+                                        </div>
+                                        <div class="team-social-one">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-instagram"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="single-details">
+                                <a href="{% url 'team_detail' team.id %}">
+                                    <h5 class="title">{{ team.name }}</h5>
+                                </a>
+                                <p>{{ team.designation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end team section -->
+{% endblock %}

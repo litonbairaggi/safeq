@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+    
+    <!-- rts features area start -->
+    <div class="rts-feature-area rts-section-gap">
+        <div class="container-fluid padding-controler plr--120">
+            <div class="row bg-white-feature  pt--120 pb--120">
+                {% for feature in features %}
+                <div class="col-xl-6 col-lg-12">
+                    <div class="feature-left-area">
+                        <img src="{{ feature.feature_img.url }}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+                {% for feature in features %}
+                <div class="col-xl-6 col-lg-12">
+                    <div class="rts-title-area feature text-start pl--30 pl_sm--0">
+                        <p class="pre-title">{{feature.pre_title}}</p>
+                        <h2 class="title feature-title">{{feature.title}}</h2>
+                        <p>{{feature.description}}</p>
+                    </div>
+                    <div class="feature-one-wrapper pl--30 mt--40 pl_sm--0">
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_1}}</p>
+                        </div>
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_2}}</p>
+                        </div>
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_3}}</p>
+                        </div>
+                        <div class="single-feature-one">
+                            <i class="fal fa-check"></i>
+                            <p>{{feature.feature_4}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- rts features area end -->
+{% endblock %}

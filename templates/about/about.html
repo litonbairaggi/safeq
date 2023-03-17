@@ -1,0 +1,125 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+    
+<div id="anywhere-home"></div>
+<!-- rts about us section start -->
+<div class="rts-about-area rts-section-gap bg-about-sm-shape" id="about-us">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <!-- about left -->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-md-2 order-sm-2 order-2 mt_md--50 mt_sm--50">
+                {% for about_us in about_uss %}    
+                <div class="rts-title-area">
+                    <p class="pre-title">
+                        {{about_us.title_slogan}}
+                    </p>
+                    <h2 class="title">{{about_us.title}}</h2>
+                </div>
+                {% endfor %}
+
+                <div class="about-inner">
+                    {% for about_us in about_uss %}
+                    <p class="disc">
+                        {{about_us.description}}
+                    </p>
+                    <!-- start about success area -->
+                    <div class="row about-success-wrapper">
+                        <!-- left wrapper start -->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_1}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_2}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_3}}</p>
+                            </div>
+                        </div>
+                        <!-- left wrapper end -->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_4}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_5}}</p>
+                            </div>
+                            <div class="single">
+                                <i class="far fa-check"></i>
+                                <p class="details">{{about_us.detail_6}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- start about success area -->
+
+                    <!-- about founder & get in touch start -->
+                    {% for founder_info in founder_infos %}
+                    <div class="row about-founder-wrapper align-items-center mt--40">
+                        <!-- left area start -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="author-inner">
+                                <a class="thumbnail" href="#"><img src="{{ founder_info.founder_img.url }}" alt="finbiz_founder"></a>
+                                <div class="founder-details">
+                                    <a href="team-details.html">
+                                        <h6 class="title">{{founder_info.name}}</h6>
+                                    </a>
+                                    <span>{{founder_info.designation}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- left area end -->
+                        <!-- right founder area -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt_sm--20">
+                            <div class="author-call-option">
+                                <img class="authore-call" src="{% static 'images/about/call.svg' %}" alt="call_founder">
+                                <div class="call-details">
+                                    <span>Call us anytime</span>
+                                    <a href="tel:+18475555555">
+                                        <h6 class="title">{{founder_info.contact_no}}</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- left founder area -->
+                    </div>                   
+                    {% endfor %}
+                    <!-- about founder & get in touch end -->
+                </div>
+            </div>
+            <!-- about right -->
+
+            <!-- about-right Start-->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-md-1 order-sm-1 order-1">
+                <div class="about-one-thumbnail">
+                    {% for about_time in about_times %}
+                    <img src="{{ about_time.img.url }}" alt="about-finbiz">
+                    <img class="small-img" src="{{ about_time.small_img.url }}" alt="finbiz-small">
+                    <div class="experience">
+                        <div class="left single">
+                            <h2 class="title">{{about_time.time_no}}+</h2>
+                            <p class="time">{{about_time.time}}</p>
+                        </div>
+                        <div class="right single">
+                            <p class="disc">
+                                {{about_time.description}}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% comment %} {% endfor %} {% endcomment %}
+            <!-- about-right end -->
+        </div>
+    </div>
+</div>
+<!-- rts about us section end -->
+
+{% endblock %}    

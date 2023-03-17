@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+
+<!-- blog area start -->
+<div class="rts-blog-area rts-section-gap bg-secondary" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="title-area text-center">
+                    <span>Blog Posts</span>
+                    <h2 class="title">News & Updates</h2>
+                </div>
+            </div>
+        </div>
+        <div class="g-5 mt--20">
+            <div class="swiper mySwiperh1_blog">
+                <div class="swiper-wrapper">
+                    {% for news_update in news_updates %}
+                    <div class="swiper-slide">
+                        <div class="single-blog-one-wrapper">
+                            <div class="thumbnail">
+                                <img src="{{ news_update.membar_img.url }}" alt="business_Blog">
+                                <div class="blog-badge">
+                                    <span>{{ news_update.created_at }}</span>
+                                </div>
+                            </div>
+                            <div class="blog-content">
+                                <p><span>{{ news_update.organization }}</p>
+                                <a href="{% url 'nu_detail' %}">
+                                    <h5 class="title">{{ news_update.headline }}</h5>
+                                </a>
+                                <a class="rts-read-more btn-primary" href="{% url 'nu_detail' %}"><i class="far fa-arrow-right"></i>Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- blog area end -->
+
+{% endblock %}    

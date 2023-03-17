@@ -1,0 +1,155 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% load static %}
+    
+    <!-- rts service post area  Start-->
+<br><br>
+{% for service in services %}
+    <div class="rts-service-area rts-section-gapBottom" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="rts-title-area service text-center">
+                        <p class="pre-title">
+                            {{service.pre_title}}
+                        </p>
+                        <h2 class="title">{{service.title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid service-main plr--120-service mt--50 plr_md--0 pl_sm--0 pr_sm--0">
+            <div class="background-service row">
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner one">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/01.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_tc' %}">
+                                <h5 class="title">{{service.title_1}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_1}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_tc' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner two">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/02.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_ar' %}">
+                                <h5 class="title">{{service.title_2}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_2}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_ar' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner three">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/03.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_ca' %}">
+                                <h5 class="title">{{service.title_3}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_3}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_ca' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner four">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/04.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_ima' %}">
+                                <h5 class="title">{{service.title_4}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_4}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_ima' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner five">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/05.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_cm' %}">
+                                <h5 class="title">{{service.title_5}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_5}}
+                            </p>
+                            <a class="rts-read-more btn-primary" href="{% url 'service_cm' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+                <!-- start single Service -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="service-one-inner six">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/service/icon/06.svg' %}" alt="finbiz_service">
+                        </div>
+                        <div class="service-details">
+                            <a href="{% url 'service_hs' %}">
+                                <h5 class="title">{{service.title_6}}</h5>
+                            </a>
+                            <p class="disc">
+                                {{service.Short_description_6}}
+                            <a class="rts-read-more btn-primary" href="{% url 'service_hs' %}"><i class="far fa-arrow-right"></i>Read
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single Services -->
+            </div>
+            <div class="row">
+                <div class="cta-one-bg col-12">
+                    <div class="cta-one-inner">
+                        <div class="cta-left">
+                            <h3 class="title">Let’s discuss about how we can help
+                                make your business better</h3>
+                        </div>
+                        <div class="cta-right">
+                            <a class="rts-btn btn-white" href="appoinment.html">Lets Work Together</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    <!-- rts service post area ENd -->
+
+{% endblock %}    
